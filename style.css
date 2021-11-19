@@ -56,6 +56,14 @@ i.fa.fa-heart {
     color: #b71919;
     margin-top: 10px;
 }
+* {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text; 
+   }
+::selection {background: rgb(88, 173, 243);}
+::-moz-selection {background: rgb(88, 173, 243);}
+::-webkit-selection {background: rgb(88, 173, 243);}
 
 .quote-container {
     width: auto;
@@ -99,7 +107,7 @@ i.fa.fa-heart {
 
 .twitter-button:hover {
     color: rgb(88, 173, 243);
-    transition: 0.4s;
+    transition: 0.2s;
     cursor: pointer;
 }
 
@@ -110,19 +118,42 @@ i.fa.fa-heart {
     color: white;
     font-family: 'Oswald';
     background: black;
-    transition: 0.4s;
+    transition: 0.2s;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
 }
+.new-quote::before {
+    content: "";
+    left: 0;
+    top:0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background:rgb(88, 173, 243);
 
+    transform:scaleY(0);
+    transform-origin: top center;
+    transition: transform 0.2s;
+    z-index: -1;
+}
+.new-quote:hover::before {
+
+    transform:scaleY(1);
+    transform-origin: bottom center;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
 .new-quote:active,
 .twitter-button:active {
     transform: scale(0.8);
 }
 
-.new-quote:hover {
+/* .new-quote:hover {
     background: rgb(88, 173, 243);
     transition: 0.4s;
     cursor: pointer;
-}
+} */
 
 .button-container {
     display: flex;
