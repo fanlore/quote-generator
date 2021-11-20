@@ -7,7 +7,7 @@ const loader = document.querySelector('.loader-container');
 // Выполняем асинхронную функцию
 async function getQuote(){
     loader.style.display = 'flex';
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; //  помогает получать доступ к данным с других веб-сайтов, что обычно запрещено политикой происхождения веб-браузеров, путем проксирования запросов на эти сайты через сервер 
+    const proxyUrl = 'https://whispering-tor-04671.herokuapp.com/'; //  помогает получать доступ к данным с других веб-сайтов, что обычно запрещено политикой происхождения веб-браузеров, путем проксирования запросов на эти сайты через сервер 
     const apiUrl = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=ru&format=json'; // Ссылка на апи, откуда мы хотим получить данные
     try{
         const response = await fetch(proxyUrl + apiUrl); // посылаем запрос и ждём ответа
